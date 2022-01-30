@@ -7,6 +7,7 @@
 }
 
 .item {
+  position: relative;
   flex-grow: 1;
   background-color: var(--color-background-light);
   margin: 0 1rem;
@@ -21,9 +22,18 @@
   margin-right: 0;
   margin-bottom: 0;
 }
+.item::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: .4rem;
+  background-color: var(--color-blue);
+}
 
 .job {
-
+  position: relative;
 }
 .job h2 {
   font-size: 2.2rem;

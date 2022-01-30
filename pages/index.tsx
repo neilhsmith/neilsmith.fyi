@@ -9,6 +9,7 @@ import { Navbar } from "components/Navbar";
 import { Splash } from "components/Splash";
 import { SkillChart } from "components/SkillChart";
 import { ExperienceList } from "components/ExperienceList";
+import { ContactForm } from 'components/ContactForm';
 
 import styles from "styles/Home.module.css";
 
@@ -73,7 +74,15 @@ const Home: NextPage = () => {
         <section id="contact" className={classNames(styles.section, styles.contact)}>
           <Container>
             <div className={styles.contactInner}>
-              <h1 className={styles.heading}>contact</h1>
+              <Row>
+                <Col>
+                  <h1 className={styles.heading}>Contact</h1>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
+                </Col>
+                <Col>
+                  <ContactForm />
+                </Col>
+              </Row>
             </div>
           </Container>
         </section>
