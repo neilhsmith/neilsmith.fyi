@@ -44,11 +44,11 @@ export const ContactForm = () => {
 
   return <div className={styles.contactForm}>
     <form name="contact" method="POST" data-netlify="true" autoComplete="off" onSubmit={onSubmit}>
-      <input type="text" id="name" name="name" placeholder="Name" value={state.name} required onChange={handleChange} />
+      <input type="text" id="contact_name" name="contact_name" placeholder="Name" value={state.name} required onChange={handleChange} />
       <br />
-      <input type="email" id="email" name="email" placeholder="Email" value={state.email} required onChange={handleChange} />
+      <input type="email" id="contact_email" name="contact_email" placeholder="Email" value={state.email} required onChange={handleChange} />
       <br />
-      <textarea id="message" name="message" placeholder="Message" value={state.message} required onChange={handleChange} />
+      <textarea id="contact_message" name="contact_message" placeholder="Message" value={state.message} required onChange={handleChange} />
       <br />
       <button type="submit">Submit</button>
     </form>
