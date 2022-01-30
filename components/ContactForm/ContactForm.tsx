@@ -44,6 +44,7 @@ export const ContactForm = () => {
 
   return <div className={styles.contactForm}>
     <form name="contact" method="POST" data-netlify="true" autoComplete="off" onSubmit={onSubmit}>
+      <input type="hidden" name="form-name" value="contact" />
       <input type="text" id="contact_name" name="contact_name" placeholder="Name" value={state.name} required onChange={handleChange} />
       <br />
       <input type="email" id="contact_email" name="contact_email" placeholder="Email" value={state.email} required onChange={handleChange} />
