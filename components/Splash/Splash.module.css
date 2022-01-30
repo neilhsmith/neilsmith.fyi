@@ -1,0 +1,52 @@
+.splash {
+  height: 90vh;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  box-shadow: 0 6px 4px var(--color-shadow);
+}
+
+.splashInner {
+  width: 50%;
+  text-align: right;
+}
+
+.title {
+  font-size: 8rem;
+  line-height: 106%;
+  text-shadow: 0 4px 4px var(--color-shadow-light);
+}
+
+.subtitle {
+  font-size: 3.75rem;
+  font-weight: 400;
+  text-shadow: 0 4px 4px var(--color-shadow-light);
+}
+
+.highlight {
+  display: block;
+  color: var(--color-green);
+}
+
+@media screen and (max-width: 992px) {
+  .splash {
+    height: 100vh;
+  }
+
+  .title {
+    font-size: 6rem;
+  }
+
+  .subtitle {
+    font-size: 3rem;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .splashInner {
+    width: 90%;
+  }
+}

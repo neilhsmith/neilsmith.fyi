@@ -1,0 +1,58 @@
+.experienceList {
+  margin-top: 8rem;
+  display: flex;
+  flex-direction: row;
+  list-style: none;
+  padding-left: 0;
+}
+
+.item {
+  flex-grow: 1;
+  background-color: var(--color-background-light);
+  margin: 0 1rem;
+  padding: 4rem;
+  box-shadow: 0 6px 4px var(--color-shadow);
+}
+.item:first-child {
+  margin-left: 0;
+  margin-top: 0;
+}
+.item:last-child {
+  margin-right: 0;
+  margin-bottom: 0;
+}
+
+.job {
+
+}
+.job h2 {
+  font-size: 2.2rem;
+  margin: 0 0 1.2rem 0;
+  min-height: 5.8rem;
+}
+.job time {
+  display: block;
+  margin-bottom: 2rem;
+}
+.job p {
+  font-size: 1.6rem;
+  line-height: 150%;
+  margin-bottom: 0;
+}
+
+@media screen and (max-width: 992px) {
+  .experienceList {
+    flex-direction: column;
+  }
+
+  .item {
+    padding: 3rem;
+    margin: 1rem 0;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .item {
+    padding: 2rem;
+  }
+}

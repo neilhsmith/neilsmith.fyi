@@ -1,0 +1,79 @@
+.page {
+  
+}
+
+.section {
+  padding: 18rem 0;
+}
+
+.heading {
+  display: inline-block;
+  position: relative;
+  font-size: 5.5rem;
+  line-height: 4rem;
+  text-transform: uppercase;
+  letter-spacing: -2px;
+  margin-top: 0; 
+}
+.heading::before {
+  content: "";
+  position: absolute;
+  left: -3%;
+  bottom: 0;
+  width: 106%;
+  height: 31%;
+  background-color: var(--color-red);
+  box-shadow: 0 6px 4px var(--color-shadow); 
+  z-index: -1;
+}
+
+.subHeading {
+  font-size: 2.4rem;
+  font-weight: 400;
+}
+
+.about {
+  
+}
+.aboutInner {
+  max-width: 42%;
+}
+
+.skills {
+
+}
+.skillsInner {
+
+}
+
+.projects {
+
+}
+.projectsInner {
+
+}
+
+.contact {
+
+}
+.contactInner {
+  
+}
+
+@media screen and (max-width: 1048px) {
+  .aboutInner {
+    max-width: 58%;
+  }
+}
+
+@media screen and (max-width: 992px) {
+  .aboutInner {
+    max-width: 72%;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .aboutInner {
+    max-width: 100%;
+  }
+}

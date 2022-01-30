@@ -1,0 +1,230 @@
+.wrapper {
+  background-color: var(--color-background-light);
+  position: sticky;
+  top: 0;
+  box-shadow: 0 4px 4px var(--color-shadow);
+  z-index: 2;
+}
+
+/* NAVBAR ------------------------------------------------------------------- */
+
+.content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  transition: all .4s ease-in;
+}
+
+.mainNav {
+  flex-grow: 1;
+}
+.mainList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+  margin-right: 4.6rem;
+}
+.mainList > li {
+  margin-left: 2.6rem;
+}
+.mainList > li:first-child {
+  margin-right: auto;
+  margin-left: 0;
+}
+.mainList > li a:not(.title) {
+  font-size: 1.8rem;
+}
+
+.socialNav {
+
+}
+.socialList {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  list-style: none;
+  padding-left: 0;
+}
+.socialList > li {
+  margin-left: 1.6rem;
+  width: 2.2rem;
+}
+.socialList > li:first-child {
+  margin-left: 0;
+}
+.socialList > li a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.title {
+  font-size: 3.6rem;
+  font-weight: var(--weight-bold);
+  letter-spacing: -.2rem;
+  color: var(--color-green);
+}
+
+/* DRAWER BUTTON ------------------------------------------------------------ */
+
+.checkbox {
+  display: none;
+}
+
+.btn {
+  display: none;
+  background-color: var(--color-text);
+  width: 7rem;
+  height: 7rem;
+  position: fixed;
+  top: 4rem;
+  right: 4rem;
+  border-radius: 50%;
+  text-align: center;
+  cursor: pointer;
+  z-index: 9;
+  box-shadow: 0 7px 4px var(--color-shadow);
+}
+
+.icon {
+  position: relative;
+  margin-top: 3.5rem;
+}
+.icon::before {
+  top: -.8rem;
+}
+.icon::after {
+  top: .8rem;
+}
+.icon::before,
+.icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  transition: all .2s;
+}
+.icon,
+.icon::before,
+.icon::after {
+  width: 3rem;
+  height: .2rem;
+  background-color: var(--color-black-light);
+  display: inline-block;
+}
+
+#toggle:checked + .btn .icon {
+  background-color: transparent;
+}
+#toggle:checked + .btn .icon::before {
+  top: 0;
+  transform: rotate(-135deg);
+}
+#toggle:checked + .btn .icon::after {
+  top: 0;
+  transform: rotate(135deg);
+}
+
+#background {
+  display: none;
+  width: 6rem;
+  height: 6rem;
+  border-radius: 50%;
+  position: fixed;
+  top: 4.5rem;
+  right: 4.5rem;
+  z-index: 7;
+  background-image: radial-gradient(var(--color-background-light), var(--color-blue));
+  transition: transform .4s ease-in;
+}
+
+#toggle:checked ~ #background {
+  transform: scale(100);
+}
+
+@media screen and (max-width: 992px) {
+  /* NAVBAR ----------------------------------------------------------------- */
+  .wrapper {
+    background-color: transparent;
+  }
+
+  .content {
+    position: fixed;
+    top: 16%;
+    left: -150%;
+    width: 100%;
+    height: 100vh;
+    z-index: 8;
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  #toggle:checked ~ .content {
+    left: 0;
+  }
+
+  .mainNav {
+    flex-grow: 0;
+  }
+  .mainList {
+    flex-direction: column;
+    margin: 0;
+    margin-bottom: 3rem;
+  }
+  .mainList > li {
+    margin: 0;
+    margin-bottom: 2rem;
+  }
+  .mainList > li:first-child {
+    margin: 0 auto 4rem;
+  }
+  .mainList > li a:not(.title) {
+    font-size: 2.6rem;
+  }
+
+  .socialNav {
+
+  }
+  .socialList {
+
+  }
+  .socialList > li {
+    margin: 0 2rem;
+    width: 3.2rem;
+  }
+  .socialList > li:first-child {
+    margin: 0 2rem;
+  }
+
+  .title {
+    font-size: 6.2rem;
+  }
+
+  /* DRAWER BUTTON ---------------------------------------------------------- */
+
+  .btn,
+  #background {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .btn {
+    width: 5rem;
+    height: 5rem;
+    top: 2.6rem;
+    right: 1.8em;
+  }
+
+  .icon {
+    margin-top: 2.5rem;
+  }
+
+  #background {
+    width: 4rem;
+    height: 4rem;
+    top: 3rem;
+    right: 2.2em;
+  }
+}
