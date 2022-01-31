@@ -44,6 +44,7 @@ export const ContactForm = () => {
 
   return <div className={styles.contactForm}>
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
       <p>
         <label htmlFor="name">Name</label>
         <input type="text" id="name" name="name" />
