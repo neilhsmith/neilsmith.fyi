@@ -43,15 +43,22 @@ export const ContactForm = () => {
   };
 
   return <div className={styles.contactForm}>
-    <form name="contact" method="POST" data-netlify="true" autoComplete="off" onSubmit={onSubmit}>
-      <input type="hidden" name="form-name" value="contact" />
-      <input type="text" id="contact_name" name="contact_name" placeholder="Name" value={state.name} required onChange={handleChange} />
-      <br />
-      <input type="email" id="contact_email" name="contact_email" placeholder="Email" value={state.email} required onChange={handleChange} />
-      <br />
-      <textarea id="contact_message" name="contact_message" placeholder="Message" value={state.message} required onChange={handleChange} />
-      <br />
-      <button type="submit">Submit</button>
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+      <p>
+        <label htmlFor="name">Name</label>
+        <input type="text" id="name" name="name" />
+      </p>
+      <p>
+        <label htmlFor="email">Email</label>
+        <input type="text" id="email" name="email" />
+      </p>
+      <p>
+        <label htmlFor="message">Message</label>
+        <textarea id="message" name="message"></textarea>
+      </p>
+      <p>
+        <button type="submit">Send</button>
+      </p>
     </form>
   </div>;
 };
