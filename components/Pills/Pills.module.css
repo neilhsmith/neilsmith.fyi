@@ -1,0 +1,16 @@
+.pillBox {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: 3rem;
+}
+
+.pill {
+  font-size: 1.4rem;
+  padding: .3rem 1rem;
+  margin-right: 1.6rem;
+  background-color: var(--color-blue);
+  box-shadow: 0 4px 4px var(--color-shadow);
+}

@@ -18,19 +18,19 @@ export const Navbar = () => {
         <nav className={styles.mainNav}>
           <ul className={styles.mainList}>
             <li>
-              <Link href="#"><a className={styles.title}>neilSmith</a></Link>
+              <Link href="/"><a className={styles.title}>neilSmith</a></Link>
             </li>
             <li>
-              <Link href="#about"><a>About</a></Link>
+              <Link href="/#about"><a>About</a></Link>
             </li>
             <li>
-              <Link href="#skills"><a>Skills</a></Link>
+              <Link href="/#skills"><a>Skills</a></Link>
             </li>
             <li>
-              <Link href="#projects"><a>Projects</a></Link>
+              <Link href="/#projects"><a>Projects</a></Link>
             </li>
             <li>
-              <Link href="#contact"><a>Contact</a></Link>
+              <Link href="/#contact"><a>Contact</a></Link>
             </li>
           </ul>
         </nav>
