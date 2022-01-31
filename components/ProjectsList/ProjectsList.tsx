@@ -10,6 +10,11 @@ export const ProjectsList = () => {
       <Link href="/projects/brsl-events"><a className="link link-secondary">Read More</a></Link>
     </li>
     <li className={styles.item}>
+      <h2>neilsmith.fyi</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+      <Link href="/projects/neilsmith-fyi"><a className="link link-secondary">Read More</a></Link>
+    </li>
+    <li className={styles.item}>
       <h2>KYSEK</h2>
       <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
       <Link href="/projects/kysek"><a className="link link-secondary">Read More</a></Link>

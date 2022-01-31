@@ -4,6 +4,7 @@ import Image from "next/image";
 import { ProjectLayout } from 'layouts/ProjectLayout';
 import { Row, Col } from "components/Row";
 import { Heading } from "components/Heading";
+import { ImageCarousel } from 'components/ImageCarousel';
 import { PillBox } from "components/Pills";
 
 import styles from "styles/Project.module.css";
@@ -18,7 +19,17 @@ const Kysek: NextPage = () => {
     <Row>
       <Col>
         <div className={styles.featuredImage}>
-          <Image src="/kysek-home-877.png" width={877} height={718} />
+          <ImageCarousel images={[{
+            url: '/kysek-home-877.png',
+            alt: 'KYSEK Website home page',
+            width: 877,
+            height: 718
+          }, {
+            url: '/kysek-product.png',
+            alt: 'KYSEK Website product page',
+            width: 877,
+            height: 718
+          }]} />
         </div>
       </Col>
       <Col>

@@ -1,0 +1,45 @@
+.imageCarousel {
+  
+}
+
+.embla {
+  position: relative;
+  background-color: #f7f7f7;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.viewport {
+  overflow: hidden;
+  width: 100%;
+}
+.viewport.is-draggable {
+  cursor: move;
+  cursor: grab;
+}
+.viewport.is-dragging {
+  cursor: grabbing;
+}
+
+.container {
+  display: flex;
+  user-select: none;
+  -webkit-touch-callout: none;
+  -khtml-user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.slide {
+  position: relative;
+  min-width: 100%;
+}
+
+.slideInner {
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+.slideImg {
+  
+}

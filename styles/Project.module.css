@@ -11,3 +11,16 @@
 .featuredImage span {
   display: block !important;
 }
+
+.embla {
+  overflow: hidden;
+}
+
+.embla-container {
+  display: flex;
+}
+
+.embla-slide {
+  position: relative;
+  flex: 0 0 100%;
+}

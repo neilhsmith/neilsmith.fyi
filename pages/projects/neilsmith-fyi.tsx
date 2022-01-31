@@ -4,44 +4,35 @@ import Image from "next/image";
 import { ProjectLayout } from 'layouts/ProjectLayout';
 import { Row, Col } from "components/Row";
 import { Heading } from "components/Heading";
-import { ImageCarousel } from "components/ImageCarousel";
 import { PillBox } from "components/Pills";
 
 import styles from "styles/Project.module.css";
 
-const categories = [{
-  id: 1,
-  name: 'Wordpress'
-}];
-
-const TheHealthyCookingBlog: NextPage = () => {
+const NeilSmithFYI: NextPage = () => {
+  const categories = [{
+    id: 1,
+    name: 'Next.js'
+  }, {
+    id: 2,
+    name: 'TypeScript'
+  }];
 
   return <ProjectLayout>
     <Row>
       <Col>
         <div className={styles.featuredImage}>
-          <ImageCarousel images={[{
-            url: '/the-healthy-cooking-blog-home-877.png',
-            alt: 'The Healthing Cooking Blog home page',
-            width: 877,
-            height: 718
-          }, {
-            url: '/the-healthy-cooking-blog-post-877.png',
-            alt: 'The Healthing Cooking Blog post page',
-            width: 877,
-            height: 718
-          }]} />
+          <Image src="/kysek-home-877.png" width={877} height={718} />
         </div>
       </Col>
       <Col>
-        <Heading>The Healthy Cooking Blog</Heading>
+        <Heading>neilsmith.fyi</Heading>
         <PillBox items={categories} />
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
-        <a className="button button-primary" href="https://thehealthycookingblog.com">View Site</a>
+        <a className="button button-primary" href="https://github.com/neilhsmith/neilsmith.fyi">View Code</a>
       </Col>
     </Row>
   </ProjectLayout>;
 };
 
-export default TheHealthyCookingBlog;
+export default NeilSmithFYI;
