@@ -1,4 +1,5 @@
-import { useState, FormEvent, ChangeEventHandler, ChangeEvent } from "react";
+import { useState, FormEvent } from "react";
+import classNames from "classnames";
 
 import styles from "./ContactForm.module.css";
 
@@ -45,21 +46,21 @@ export const ContactForm = () => {
   return <div className={styles.contactForm}>
     <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
-      <p>
+      <div className={styles.field}>
         <label htmlFor="name">Name</label>
-        <input type="text" id="name" name="name" />
-      </p>
-      <p>
+        <input type="text" id="name" name="name" placeholder="Name" />
+      </div>
+      <div className={styles.field}>
         <label htmlFor="email">Email</label>
-        <input type="text" id="email" name="email" />
-      </p>
-      <p>
+        <input type="text" id="email" name="email" placeholder="Email" />
+      </div>
+      <div className={styles.field}>
         <label htmlFor="message">Message</label>
-        <textarea id="message" name="message"></textarea>
-      </p>
-      <p>
-        <button type="submit">Send</button>
-      </p>
+        <textarea id="message" name="message" placeholder="Message"></textarea>
+      </div>
+      <div>
+        <button className="button button-secondary button-wide" type="submit">Send</button>
+      </div>
     </form>
   </div>;
 };

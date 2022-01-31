@@ -48,13 +48,22 @@ a {
   text-decoration: none;
 }
 
+input,
+textarea,
+input::placeholder,
+textarea::placeholder {
+  font-family: 'Poppins', sans-serif;
+}
+
 .button {
   display: inline-block;
   padding: 1.2rem 2rem;
   font-size: 1.8rem;
   font-weight: 500;
   border: 2px solid;
+  cursor: pointer;
   transition: .2s all;
+  color: var(--color-text);
   box-shadow: 0 4px 4px var(--color-shadow);
 }
 .button:hover {
@@ -67,10 +76,18 @@ a {
 .button-secondary {
   background-color: var(--color-green);
   border-color: var(--color-green);
+  color: var(--color-background);
+}
+.button-secondary:hover {
+  color: var(--color-text);
 }
 .button-tertiary {
   background-color: var(--color-blue);
   border-color: var(--color-blue);
+}
+.button-wide {
+  padding-left: 4rem;
+  padding-right: 4rem;
 }
 
 .link {
