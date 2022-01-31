@@ -38,6 +38,7 @@ export const ImageCarousel = ({ images }: ImageCarouselProps) => {
                 alt={img.alt}
                 width={img.width}
                 height={img.height}
+                priority={idx === 0}
               />
             </div>
           </div>
