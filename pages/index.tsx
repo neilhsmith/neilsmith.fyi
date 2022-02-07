@@ -32,17 +32,17 @@ const Home: NextPage = () => {
               <Heading>About</Heading>
               <p>
                 Hi. I&apos;m Neil, a full-stack (<i>but mostly</i>) front-end
-                developer from Baton Rouge, Louisiana. I'm an innovative and
-                driven professional with 9+ years of experience providing
-                amazing experiences on the web. I've built e-commerce websites,
-                brocure websites and custom internal business applications. In
-                addition to building things from scratch, I've helped clients
-                with their online marketing strategy, SEO, analytics, site
-                hosting and administration.
+                developer from Baton Rouge, Louisiana. I&apos;m an innovative
+                and driven professional with 9+ years of experience providing
+                amazing experiences on the web. I&apos;ve built e-commerce
+                websites, brocure websites and custom internal business
+                applications. In addition to building things from scratch,
+                I&apos;ve helped clients with their online marketing strategy,
+                SEO, analytics, site hosting and administration.
               </p>
               <p>
-                I love working with modern tech and I'm always looking for the
-                project that will refine my chops.{" "}
+                I love working with modern tech and I&apos;m always looking for
+                the project that will refine my chops.{" "}
                 <Link href="https://docs.google.com/document/d/1HdHDJXYyAxWriy5R4-gm4OP9cRvtKhHwUNtmIJoh9I4/edit?usp=sharing">
                   <a>Check out my CV</a>
                 </Link>{" "}
