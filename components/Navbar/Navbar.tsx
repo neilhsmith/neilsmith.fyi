@@ -11,47 +11,63 @@ import { DrawerButton } from "./DrawerButton";
 import styles from "./Navbar.module.css";
 
 export const Navbar = () => {
-  return <div className={styles.wrapper}>
-    <Container>
-      <DrawerButton />
-      <div className={styles.content}>
-        <nav className={styles.mainNav}>
-          <ul className={styles.mainList}>
-            <li>
-              <Link href="/"><a className={styles.title}>neilSmith</a></Link>
-            </li>
-            <li>
-              <Link href="/#about"><a>About</a></Link>
-            </li>
-            <li>
-              <Link href="/#skills"><a>Skills</a></Link>
-            </li>
-            <li>
-              <Link href="/#projects"><a>Projects</a></Link>
-            </li>
-            <li>
-              <Link href="/#contact"><a>Contact</a></Link>
-            </li>
-          </ul>
-        </nav>
-        <nav className={styles.socialNav}>
-          <ul className={styles.socialList}>
-            <li>
-              <Link href="https://github.com/neilhsmith">
-                <a><FontAwesomeIcon icon={faGithub} size="xs" /></a>
-              </Link>
-            </li>
-            <li>
-              <Link href="https://www.linkedin.com/in/neil-smith-a7a46766/">
-                <a><FontAwesomeIcon icon={faLinkedin} size="xs" /></a>
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </Container>
-  </div>
-}
+  return (
+    <div className={styles.wrapper}>
+      <Container>
+        <DrawerButton />
+        <div className={styles.content}>
+          <nav className={styles.mainNav}>
+            <ul className={styles.mainList}>
+              <li>
+                <Link href="/">
+                  <a className={styles.title}>neilSmith</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#about">
+                  <a>About</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#skills">
+                  <a>Skills</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#projects">
+                  <a>Projects</a>
+                </Link>
+              </li>
+              <li>
+                <Link href="/#contact">
+                  <a>Contact</a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <nav className={styles.socialNav}>
+            <ul className={styles.socialList}>
+              <li>
+                <Link href="https://github.com/neilhsmith">
+                  <a>
+                    <FontAwesomeIcon icon={faGithub} size="sm" />
+                  </a>
+                </Link>
+              </li>
+              <li>
+                <Link href="https://www.linkedin.com/in/neil-smith-a7a46766/">
+                  <a>
+                    <FontAwesomeIcon icon={faLinkedin} size="sm" />
+                  </a>
+                </Link>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </Container>
+    </div>
+  );
+};
 
 // export const Navbar = () => {
 //   return <div className={styles.navbarWrapper}>
@@ -115,7 +131,6 @@ export const Navbar = () => {
 //       window.removeEventListener("scroll", handleScroll);
 //     };
 //   }, []);
-
 
 //   return <nav className={classnames(styles.navbar, { [styles.shadow]: shouldShadow })} ref={navbarRef} >
 //     <Link href="/">

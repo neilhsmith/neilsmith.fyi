@@ -29,6 +29,8 @@
 .highlight {
   display: block;
   color: var(--color-green);
+  font-size: 8rem;
+  line-height: 8rem;
 }
 
 @media screen and (max-width: 992px) {
@@ -42,6 +44,11 @@
 
   .subtitle {
     font-size: 3rem;
+  }
+
+  .highlight {
+    font-size: 6rem;
+    line-height: 6rem;
   }
 }
 

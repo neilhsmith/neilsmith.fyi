@@ -1,6 +1,69 @@
 .projectsList {
   list-style: none;
   padding-left: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  column-gap: 2rem;
+  row-gap: 4rem;
+}
+
+.item {
+  position: relative;
+  background-color: var(--color-background-light);
+  perspective: 1000px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px var(--color-shadow);
+}
+.item:hover .inner {
+  transform: rotateY(180deg);
+}
+
+.inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 300ms;
+  transform-style: preserve-3d;
+}
+
+.front,
+.back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+
+.front {
+  background-color: #bbb;
+  color: black;
+}
+
+.back {
+  position: relative;
+  background-color: var(--color-green);
+  color: white;
+  transform: rotateY(180deg);
+  padding: 2rem 3rem;
+}
+
+.title {
+}
+
+.descrip {
+  font-size: 2.4rem;
+  line-height: 2.8rem;
+}
+
+.link {
+  color: var(--color-text);
+  text-decoration: underline;
+}
+
+/* .projectsList {
+  list-style: none;
+  padding-left: 0;
   margin: 0;
 }
 
@@ -22,4 +85,4 @@
   font-size: 1.6rem;
   line-height: 150%;
   margin-bottom: 1rem;
-}
+} */

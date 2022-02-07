@@ -1,5 +1,4 @@
 .page {
-  
 }
 
 .subHeading {
@@ -9,31 +8,25 @@
 }
 
 .about {
-  
 }
 .aboutInner {
-  max-width: 42%;
+  max-width: 62%;
 }
 
 .skills {
-
 }
 .skillsInner {
-
 }
 
 .projects {
-
 }
 .projectsInner {
-
 }
 
 .contact {
-
 }
 .contactInner {
-  
+  max-width: 62%;
 }
 
 @media screen and (max-width: 1048px) {
