@@ -21,20 +21,20 @@ export default function Home() {
       <a href="#main" className="sr-only focus:not-sr-only">
         Skip to main content
       </a>
-      <div className="flex justify-center items-center h-full">
+      <div className="flex items-baseline justify-center h-full mt-6 md:mt-0 md:items-center">
         <div className="container mx-auto">
           {/*the border/svg/decoration would either wrap or be sibilings to this border element */}
-          <div className="border p-12">
-            <div className="mb-24">
+          <div className="p-12 border">
+            <div className="mb-14">
               <Header />
             </div>
             <main
               id="main"
               role="main"
-              className="grid grid-cols-3 gap-12 lg:gap-28 xl:gap-36 text-lg font-light md:text-xl"
+              className="grid grid-cols-3 gap-12 text-lg font-light lg:gap-28 xl:gap-36 md:text-xl"
             >
               <div className="col-span-3 md:col-span-2">
-                <h2 className="mb-8 text-6xl lg:text-8xl font-thin">
+                <h2 className="mb-8 text-6xl font-thin lg:text-8xl">
                   about me
                 </h2>
                 <div className="flex gap-8">
@@ -58,7 +58,7 @@ export default function Home() {
                         <li>
                           <Link
                             href="/"
-                            className="border px-8 py-4 text-lg font-medium uppercase leading-normal text-white"
+                            className="px-8 py-4 text-lg font-medium leading-normal text-white uppercase border"
                           >
                             My CV
                           </Link>
@@ -66,7 +66,7 @@ export default function Home() {
                         <li>
                           <Link
                             href="/"
-                            className="border px-8 py-4 text-lg font-medium uppercase leading-normal text-white"
+                            className="px-8 py-4 text-lg font-medium leading-normal text-white uppercase border"
                           >
                             Contact Me
                           </Link>
@@ -77,7 +77,7 @@ export default function Home() {
                 </div>
               </div>
               <div className="col-span-3 md:col-span-1">
-                <h2 className="mb-8 md:mt-4 lg:mt-8 lg:mb-12 text-5xl md:text-4xl lg:text-5xl font-thin">
+                <h2 className="mb-8 text-5xl font-thin md:mt-4 lg:mt-8 lg:mb-12 md:text-4xl lg:text-5xl">
                   projects
                 </h2>
                 <nav aria-label="Projects Navigation">
