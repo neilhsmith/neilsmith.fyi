@@ -37,7 +37,7 @@ export default function Home() {
                 <h2 className="mb-8 text-6xl font-thin lg:text-8xl">
                   about me
                 </h2>
-                <div className="flex gap-8">
+                <div className="flex gap-8 lg:ml-8">
                   <div className="border-l-2" />
                   <div className="space-y-4">
                     <p>
@@ -54,11 +54,11 @@ export default function Home() {
                       laborum irure nulla..
                     </p>
                     <div className="pt-8 pb-5">
-                      <ul className="flex gap-8">
+                      <ul className="flex flex-col gap-8 md:flex-row">
                         <li>
                           <Link
                             href="/"
-                            className="px-8 py-4 text-lg font-medium leading-normal text-white uppercase border"
+                            className="block w-full px-8 py-4 text-lg font-medium leading-normal text-center text-white uppercase border md:w-auto"
                           >
                             My CV
                           </Link>
@@ -66,7 +66,7 @@ export default function Home() {
                         <li>
                           <Link
                             href="/"
-                            className="px-8 py-4 text-lg font-medium leading-normal text-white uppercase border"
+                            className="block w-full px-8 py-4 text-lg font-medium leading-normal text-center text-white uppercase border md:w-auto"
                           >
                             Contact Me
                           </Link>
@@ -76,7 +76,7 @@ export default function Home() {
                   </div>
                 </div>
               </div>
-              <div className="col-span-3 md:col-span-1">
+              <aside className="col-span-3 md:col-span-1">
                 <h2 className="mb-8 text-5xl font-thin md:mt-4 lg:mt-8 lg:mb-12 md:text-4xl lg:text-5xl">
                   projects
                 </h2>
@@ -116,7 +116,7 @@ export default function Home() {
                     </li>
                   </ul>
                 </nav>
-              </div>
+              </aside>
             </main>
           </div>
         </div>
