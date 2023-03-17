@@ -11,7 +11,9 @@ export default function Logo() {
         alt="Small, stylized portrait of Neil Smith"
         className="rounded-full"
       />
-      <h1 className="text-3xl font-thin md:text-4xl">neil smith</h1>
+      <h1 className="text-3xl font-thin underline md:text-4xl underline-offset-4">
+        neil smith
+      </h1>
     </div>
   )
 }

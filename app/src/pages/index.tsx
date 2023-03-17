@@ -1,8 +1,69 @@
 import Head from "next/head"
 import Header from "@components/header"
+import {
+  createContext,
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react"
+import ButtonLink from "@components/button-link"
+import { useRouter } from "next/router"
 import Link from "next/link"
 
+type Section = {
+  label: string
+  href: string
+  sidebar: boolean
+  content: ReactNode
+}
+
+const sections: Array<Section> = [
+  {
+    label: "about me",
+    href: "/",
+    sidebar: false,
+    content: <AboutMeContent />,
+  },
+  {
+    label: "simple-spaghett.io",
+    href: "/#simple-spaghettio",
+    sidebar: true,
+    content: <SimpleSpaghettioContent />,
+  },
+  {
+    label: "brsl events",
+    href: "/#brsl-events",
+    sidebar: true,
+    content: <div>brsl events</div>,
+  },
+  {
+    label: "kysek",
+    href: "/#kysek",
+    sidebar: true,
+    content: <div>kysek</div>,
+  },
+]
+
 export default function Home() {
+  const router = useRouter()
+  const [hydrated, setHydrated] = useState(false)
+  const [activeSection, setActiveSection] = useState(sections[0])
+
+  useEffect(() => {
+    setHydrated(true)
+  }, [])
+
+  useEffect(() => {
+    // i'm setting the activeSection through the route so that we also automatically handle page loads w/ a project's
+    // path. the downside is that it does cause an extra rerender when changing paths since the route changes and then
+    // activeSection changes.
+    const nextSection = sections.find((s) => s.href === router.asPath)
+    if (nextSection) setActiveSection(nextSection)
+    else router.replace("/404")
+  }, [router.asPath, router])
+
   return (
     <>
       <style global jsx>{`
@@ -21,99 +82,51 @@ export default function Home() {
       <a href="#main" className="sr-only focus:not-sr-only">
         Skip to main content
       </a>
-      <div className="flex items-baseline justify-center h-full mt-6 md:mt-0 md:items-center">
+      <div className="flex items-baseline justify-center h-full pt-6 md:pt-0 md:items-center">
         <div className="container mx-auto">
-          {/*the border/svg/decoration would either wrap or be sibilings to this border element */}
-          <div className="p-12 border">
+          <div
+            className={`p-12 border transform transition-opacity delay-75 duration-1000 opacity-0  ${
+              hydrated ? "opacity-100" : ""
+            }`}
+          >
             <div className="mb-14">
               <Header />
             </div>
             <main
               id="main"
               role="main"
-              className="grid grid-cols-3 gap-12 text-lg font-light lg:gap-28 xl:gap-36 md:text-xl"
+              className={`grid grid-cols-3 gap-12 text-lg font-light lg:gap-28 xl:gap-36 md:text-xl`}
             >
               <div className="col-span-3 md:col-span-2">
-                <h2 className="mb-8 text-6xl font-thin lg:text-8xl">
-                  about me
-                </h2>
-                <div className="flex gap-8 lg:ml-8">
-                  <div className="border-l-2" />
-                  <div className="space-y-4">
-                    <p>
-                      Irure laboris consequat excepteur sint pariatur
-                      reprehenderit adipisicing. Laboris incididunt velit
-                      eiusmod amet non voluptate. Eu dolor laborum ea aliquip
-                      cupidatat consectetur. Minim cupidatat mollit Lorem veniam
-                      exercitation pariatur velit tempor.
-                    </p>
-                    <p>
-                      Eu dolor laborum ea aliquip cupidatat consectetur. Elit
-                      pariatur nisi esse do. Qui laboris deserunt excepteur
-                      consectetur do dolor sit adipisicing amet reprehenderit
-                      laborum irure nulla..
-                    </p>
-                    <div className="pt-8 pb-5">
-                      <ul className="flex flex-col gap-8 md:flex-row">
-                        <li>
-                          <Link
-                            href="/"
-                            className="block w-full px-8 py-4 text-lg font-medium leading-normal text-center text-white uppercase border md:w-auto"
-                          >
-                            My CV
-                          </Link>
-                        </li>
-                        <li>
-                          <Link
-                            href="/"
-                            className="block w-full px-8 py-4 text-lg font-medium leading-normal text-center text-white uppercase border md:w-auto"
-                          >
-                            Contact Me
-                          </Link>
-                        </li>
-                      </ul>
-                    </div>
-                  </div>
-                </div>
+                <ContentSections>
+                  {sections.map((section) => (
+                    <ContentSection
+                      key={section.label}
+                      active={section.label === activeSection.label}
+                    >
+                      {section.content}
+                    </ContentSection>
+                  ))}
+                </ContentSections>
               </div>
               <aside className="col-span-3 md:col-span-1">
-                <h2 className="mb-8 text-5xl font-thin md:mt-4 lg:mt-8 lg:mb-12 md:text-4xl lg:text-5xl">
+                <h2 className="mb-8 text-5xl font-thin md:mt-2 lg:mt-2 md:mb-6 lg:mb-8 md:text-4xl lg:text-5xl">
                   projects
                 </h2>
                 <nav aria-label="Projects Navigation">
                   <ul className="space-y-6">
-                    <li>
-                      <Link
-                        href="#universe"
-                        className="underline underline-offset-8"
-                      >
-                        univer.se
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="#simple-spaghettio"
-                        className="underline underline-offset-8"
-                      >
-                        simple-spaghett.io
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="#brsl-events"
-                        className="underline underline-offset-8"
-                      >
-                        brsl events
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        href="#kysek"
-                        className="underline underline-offset-8"
-                      >
-                        kysek
-                      </Link>
-                    </li>
+                    {sections
+                      .filter((s) => s.sidebar)
+                      .map((section) => (
+                        <li key={section.label}>
+                          <Link
+                            href={section.href}
+                            className="underline underline-offset-4"
+                          >
+                            {section.label}
+                          </Link>
+                        </li>
+                      ))}
                   </ul>
                 </nav>
               </aside>
@@ -121,6 +134,159 @@ export default function Home() {
           </div>
         </div>
       </div>
+    </>
+  )
+}
+
+const ContentHeightContext = createContext({
+  reportHeight: (height: number) => console.log(height),
+})
+
+function ContentSections({ children }: { children: ReactNode }) {
+  const [heights, setHeights] = useState<Array<number>>([])
+  const maxHeight = Math.max(...heights)
+
+  const saveChildHeight = (h: number) => {
+    setHeights((prev) => [...prev, h])
+  }
+
+  return (
+    <ContentHeightContext.Provider
+      value={{
+        reportHeight: saveChildHeight,
+      }}
+    >
+      <div
+        className="relative overflow-x-hidden"
+        style={{ minHeight: `${maxHeight}px` }}
+      >
+        {children}
+      </div>
+    </ContentHeightContext.Provider>
+  )
+}
+
+function ContentSection({
+  active,
+  children,
+}: {
+  active: boolean
+  children: ReactNode
+}) {
+  const { reportHeight } = useContext(ContentHeightContext)
+  const ref = useRef<HTMLElement>(null)
+
+  useEffect(() => {
+    if (!ref.current) return
+    reportHeight(ref.current.clientHeight)
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [])
+
+  return (
+    <article
+      ref={ref}
+      className={`absolute top-0 left-0 w-full h-auto transform duration-200 transition-all ${
+        active
+          ? "translate-x-0 opacity"
+          : "translate-x-full opacity-0 pointer-events-none"
+      }`}
+    >
+      {children}
+    </article>
+  )
+}
+
+ContentSection.Header = function ContentSectionHeader({
+  children,
+}: {
+  children: string
+}) {
+  return (
+    <h2 className="mb-8 text-3xl font-thin md:text-5xl lg:text-6xl">
+      {children}
+    </h2>
+  )
+}
+
+ContentSection.Body = function ContentSectionBody({
+  children,
+}: {
+  children: ReactNode
+}) {
+  return (
+    <div className="flex gap-8 lg:ml-8">
+      <div className="border-l-2" />
+      <div className="space-y-4">{children}</div>
+    </div>
+  )
+}
+
+ContentSection.Footer = function ContentSectionFooter({
+  children,
+}: {
+  children: ReactNode
+}) {
+  return <div className="pt-8 pb-2">{children}</div>
+}
+
+function AboutMeContent() {
+  return (
+    <>
+      <ContentSection.Header>about me</ContentSection.Header>
+      <ContentSection.Body>
+        <p>
+          Irure laboris consequat excepteur sint pariatur reprehenderit
+          adipisicing. Laboris incididunt velit eiusmod amet non voluptate. Eu
+          dolor laborum ea aliquip cupidatat consectetur. Minim cupidatat mollit
+          Lorem veniam exercitation pariatur velit tempor.
+        </p>
+        <p>
+          Eu dolor laborum ea aliquip cupidatat consectetur. Elit pariatur nisi
+          esse do. Qui laboris deserunt excepteur consectetur do dolor sit
+          adipisicing amet reprehenderit laborum irure nulla..
+        </p>
+        <ContentSection.Footer>
+          <ul className="flex flex-col gap-8 md:flex-row">
+            <li>
+              <ButtonLink href="/">My CV</ButtonLink>
+            </li>
+            <li>
+              <ButtonLink href="/">Contact Me</ButtonLink>
+            </li>
+          </ul>
+        </ContentSection.Footer>
+      </ContentSection.Body>
+    </>
+  )
+}
+
+function SimpleSpaghettioContent() {
+  return (
+    <>
+      <ContentSection.Header>simple-spaghett.io</ContentSection.Header>
+      <ContentSection.Body>
+        <p>
+          Irure laboris consequat excepteur sint pariatur reprehenderit
+          adipisicing. Laboris incididunt velit eiusmod amet non voluptate. Eu
+          dolor laborum ea aliquip cupidatat consectetur. Minim cupidatat mollit
+          Lorem veniam exercitation pariatur velit tempor.
+        </p>
+        <p>
+          Eu dolor laborum ea aliquip cupidatat consectetur. Elit pariatur nisi
+          esse do.
+        </p>
+        <ContentSection.Footer>
+          <ul className="flex flex-col gap-8 md:flex-row">
+            <li>
+              <ButtonLink href="/">GitHub</ButtonLink>
+            </li>
+            <li>
+              <ButtonLink href="/">View Site</ButtonLink>
+            </li>
+          </ul>
+        </ContentSection.Footer>
+      </ContentSection.Body>
     </>
   )
 }

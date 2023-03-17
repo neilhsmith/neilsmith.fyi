@@ -4,14 +4,12 @@ import Image from "next/image"
 
 export default function Header() {
   return (
-    <header role="banner">
-      <nav aria-label="Main Navigation" role="navigation">
-        <ul className="flex items-center gap-8 lg:gap-8">
-          <li className="mr-auto">
-            <Link href="/">
-              <Logo />
-            </Link>
-          </li>
+    <header role="banner" className="flex items-center justify-between">
+      <Link href="/">
+        <Logo />
+      </Link>
+      <nav aria-label="External Navigation">
+        <ul className="flex items-center gap-8">
           <li>
             <Link
               prefetch={false}
@@ -23,7 +21,7 @@ export default function Header() {
                 height={26}
                 width={26}
                 alt="Linkedin Logo"
-                className="hover:scale-125 transform transition-all duration-300"
+                className="transition-all duration-300 transform hover:scale-125"
               />
             </Link>
           </li>
@@ -35,7 +33,7 @@ export default function Header() {
                 height={26}
                 width={26}
                 alt="Github Logo"
-                className="hover:scale-125 transform transition-all duration-300"
+                className="transition-all duration-300 transform hover:scale-125"
               />
             </Link>
           </li>
