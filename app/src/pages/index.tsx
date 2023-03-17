@@ -85,7 +85,7 @@ export default function Home() {
       <div className="flex items-baseline justify-center h-full pt-6 md:pt-0 md:items-center">
         <div className="container mx-auto">
           <div
-            className={`p-12 border transform transition-opacity delay-75 duration-1000 opacity-0  ${
+            className={`relative p-12 border transform transition-opacity delay-[400ms] duration-1000 opacity-0 ${
               hydrated ? "opacity-100" : ""
             }`}
           >
@@ -131,6 +131,20 @@ export default function Home() {
                 </nav>
               </aside>
             </main>
+            <div className="absolute -bottom-[32px] right-0 md:bottom-[60px] md:left-[-70px] md:-rotate-90 flex gap-6 text-xl md:right-auto">
+              <label htmlFor="dark-mode-toggle" className="cursor-pointer">
+                <input type="radio" id="dark-mode-toggle" className="hidden" />
+                <span className="relative before:opacity-100 before:bg-white before:w-4 before:h-4 before:absolute before:-top-1 before:translate-y-1/2 before:-left-2 before:-translate-x-full">
+                  dark
+                </span>
+              </label>
+              <label htmlFor="light-mode-toggle" className="cursor-pointer">
+                <input type="radio" id="light-mode-toggle" className="hidden" />
+                <span className="relative before:opacity-0 before:bg-white before:w-4 before:h-4 before:absolute before:-top-1 before:translate-y-1/2 before:-left-2 before:-translate-x-full">
+                  light
+                </span>
+              </label>
+            </div>
           </div>
         </div>
       </div>
@@ -186,7 +200,7 @@ function ContentSection({
   return (
     <article
       ref={ref}
-      className={`absolute top-0 left-0 w-full h-auto transform duration-200 transition-all ${
+      className={`absolute top-0 left-0 w-full h-auto transform duration-500 transition-all ease-[cubic-bezier(0.95,0.05,0.795,0.035)] ${
         active
           ? "translate-x-0 opacity"
           : "translate-x-full opacity-0 pointer-events-none"
