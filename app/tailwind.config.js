@@ -8,10 +8,12 @@ module.exports = {
         "brand-dark": {
           bg: "#1d1d20",
           text: "#d1d1d1",
+          border: "#e5e7eb",
         },
         "brand-light": {
           bg: "#fdf6e3",
           text: "#657b83",
+          border: "#073642",
         },
       },
     },

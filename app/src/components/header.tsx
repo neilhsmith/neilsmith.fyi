@@ -1,6 +1,8 @@
 import Logo from "@components/logo"
 import Link from "next/link"
 import Image from "next/image"
+import GitHub from "@components/icons/GitHub"
+import Linkedin from "./icons/Linkedin"
 
 export default function Header() {
   return (
@@ -12,14 +14,7 @@ export default function Header() {
         <ul className="flex items-center gap-8">
           <li>
             <Link prefetch={false} href="https://github.com/neilhsmith">
-              <Image
-                priority
-                src="github-mark-white.svg"
-                height={26}
-                width={26}
-                alt="Github Logo"
-                className="transition-all duration-300 transform w-7 hover:scale-125"
-              />
+              <GitHub />
             </Link>
           </li>
           <li>
@@ -27,14 +22,7 @@ export default function Header() {
               prefetch={false}
               href="https://www.linkedin.com/in/neil-smith-br"
             >
-              <Image
-                priority
-                src="linkedin.svg"
-                height={26}
-                width={26}
-                alt="Linkedin Logo"
-                className="transition-all duration-300 transform w-7 hover:scale-125"
-              />
+              <Linkedin />
             </Link>
           </li>
         </ul>

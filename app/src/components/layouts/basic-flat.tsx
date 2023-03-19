@@ -17,7 +17,7 @@ export default function BasicFlatLayout({
     <div className="flex items-baseline justify-center h-full pt-6 md:pt-0 md:items-center">
       <div className="container mx-auto">
         <FadeIn>
-          <div className="p-12 border">
+          <div className="p-12 border border-brand-light-border dark:border-brand-dark-border">
             <div className="mb-14">{header}</div>
             <main
               id="main"

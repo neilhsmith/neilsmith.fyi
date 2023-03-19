@@ -21,6 +21,11 @@ const sections = [
     content: <SimpleSpaghettioContent />,
   },
   {
+    label: "captain hooks",
+    path: "/#captain-hooks",
+    content: <div>captain hooks</div>,
+  },
+  {
     label: "brsl events",
     path: "/#brsl-events",
     content: <div>brsl events</div>,
