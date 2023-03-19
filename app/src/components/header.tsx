@@ -11,6 +11,18 @@ export default function Header() {
       <nav aria-label="External Navigation">
         <ul className="flex items-center gap-8">
           <li>
+            <Link prefetch={false} href="https://github.com/neilhsmith">
+              <Image
+                priority
+                src="github-mark-white.svg"
+                height={26}
+                width={26}
+                alt="Github Logo"
+                className="transition-all duration-300 transform w-7 hover:scale-125"
+              />
+            </Link>
+          </li>
+          <li>
             <Link
               prefetch={false}
               href="https://www.linkedin.com/in/neil-smith-br"
@@ -21,19 +33,7 @@ export default function Header() {
                 height={26}
                 width={26}
                 alt="Linkedin Logo"
-                className="transition-all duration-300 transform hover:scale-125"
-              />
-            </Link>
-          </li>
-          <li>
-            <Link prefetch={false} href="https://github.com/neilhsmith">
-              <Image
-                priority
-                src="github-mark-white.svg"
-                height={26}
-                width={26}
-                alt="Github Logo"
-                className="transition-all duration-300 transform hover:scale-125"
+                className="transition-all duration-300 transform w-7 hover:scale-125"
               />
             </Link>
           </li>
