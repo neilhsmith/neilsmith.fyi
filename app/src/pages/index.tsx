@@ -8,6 +8,17 @@ import ContentViewer from "@components/content-viewer"
 import Sidebar from "@components/sidebar"
 import AboutMeContent from "@components/sections/about-me"
 import SimpleSpaghettioContent from "@components/sections/simple-spaghettio"
+import { GetServerSideProps } from "next"
+
+export const getServerSideProps: GetServerSideProps = async (context) => {
+  const theme = context.req.cookies["theme"] ?? null
+
+  return {
+    props: {
+      theme,
+    },
+  }
+}
 
 const sections = [
   {

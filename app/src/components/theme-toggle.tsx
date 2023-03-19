@@ -1,7 +1,7 @@
-import useTheme from "@hooks/useTheme"
+import { useTheme } from "@theme/context"
 
 export default function ThemeToggle() {
-  const [theme, setTheme] = useTheme()
+  const { theme, setTheme } = useTheme()
 
   return (
     <div className="flex text-lg gap-x-9">
