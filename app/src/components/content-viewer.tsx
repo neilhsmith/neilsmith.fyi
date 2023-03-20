@@ -13,11 +13,12 @@ export default function ContentViewer({
   activePath,
   items,
 }: ContentViewerProps) {
-  const [heights, setHeights] = useState<Array<number>>([])
-  const tallestChildHeight = Math.max(...heights)
+  // the content-viewer's height should match the tallest child but they're
+  // absolutely positioned so we need to find & set the height manually
+  const [tallestChildHeight, setTallestChildHeight] = useState(0)
 
-  const checkChildHeight = useCallback((h: number) => {
-    setHeights((prev) => [...prev, h])
+  const maybeSetTallestChildHeight = useCallback((h: number) => {
+    setTallestChildHeight((curr) => (h > curr ? h : curr))
   }, [])
 
   return (
@@ -29,7 +30,7 @@ export default function ContentViewer({
         <ContentSlider
           key={item.path}
           active={activePath === item.path}
-          reportHeight={checkChildHeight}
+          reportHeight={maybeSetTallestChildHeight}
         >
           {item.content}
         </ContentSlider>

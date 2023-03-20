@@ -50,6 +50,11 @@ const sections = [
 
 export default function Home() {
   const router = useRouter()
+
+  // TODO: think this memo is useless:
+  // if Home rerenders then Sidebar rerenders anyway. i think I'd need to memo the actual
+  // Sidebar component for this memo to have purpose - Sidebar wouldn't rerender when Home
+  // does because it receives the same items since we memod it
   const sidebarItems = useMemo(() => sections.filter((s) => s.path !== "/"), [])
 
   // handle 404 redirects incase someone edits their url
