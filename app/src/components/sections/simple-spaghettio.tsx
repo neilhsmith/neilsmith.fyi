@@ -19,10 +19,14 @@ export default function SimpleSpaghettioContent() {
         <ContentViewer.Footer>
           <ul className="flex flex-col gap-8 md:flex-row">
             <li>
-              <ButtonLink href="/">GitHub</ButtonLink>
+              <ButtonLink href="https://github.com/neilhsmith/simple-spaghett.io">
+                GitHub
+              </ButtonLink>
             </li>
             <li>
-              <ButtonLink href="/">View Site</ButtonLink>
+              <ButtonLink href="https://simple-spaghett.io">
+                View Site
+              </ButtonLink>
             </li>
           </ul>
         </ContentViewer.Footer>

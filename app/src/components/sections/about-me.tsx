@@ -20,10 +20,10 @@ export default function AboutMeContent() {
         <ContentViewer.Footer>
           <ul className="flex flex-col gap-8 md:flex-row">
             <li>
-              <ButtonLink href="/">My CV</ButtonLink>
+              <ButtonLink href="/cv">My CV</ButtonLink>
             </li>
             <li>
-              <ButtonLink href="/">Contact Me</ButtonLink>
+              <ButtonLink href="/contact">Contact Me</ButtonLink>
             </li>
           </ul>
         </ContentViewer.Footer>

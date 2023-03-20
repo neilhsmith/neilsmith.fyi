@@ -1,3 +1,4 @@
+import useIsHydrated from "@hooks/useIsHydrated"
 import { ReactNode, useCallback, useEffect, useRef, useState } from "react"
 
 type ContentViewerProps = {
@@ -81,8 +82,27 @@ function ContentSlider({
   children: ReactNode
   reportHeight: (h: number) => void
 }) {
+  /**
+   * TODO: probably a better way to do this:
+   *
+   * need to slide & fade these content-sliders in/out but also need to set display: none when hidden for accessibility
+   * but i can't set display: none on the correct items ntil we're hydrated. idk why - i'm guessing useRouter further
+   * up isn't set properly
+   */
+
+  const hydrated = useIsHydrated()
   const ref = useRef<HTMLElement>(null)
-  const hydrated = !!ref.current
+
+  const isVisible = hydrated && active
+  const [shouldHide, setShouldHide] = useState(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShouldHide((c) => !isVisible)
+    }, 500)
+
+    return () => clearTimeout(timer)
+  }, [isVisible])
 
   useEffect(() => {
     reportHeight(ref.current?.clientHeight ?? 0)
@@ -91,11 +111,12 @@ function ContentSlider({
   return (
     <article
       ref={ref}
+      aria-hidden={!isVisible}
       className={`absolute top-0 left-0 w-full h-auto transform duration-500 transition-[opacity,transform] ease-[cubic-bezier(0.95,0.05,0.795,0.035)] ${
-        active && hydrated
-          ? "translate-x-0 opacity"
+        isVisible
+          ? "translate-x-0 opacity-100"
           : "translate-x-full opacity-0 pointer-events-none"
-      }`}
+      } ${shouldHide ? "hidden" : "block"}`}
     >
       {children}
     </article>

@@ -13,7 +13,7 @@ export default function Sidebar({ items }: SidebarProps) {
       <h2 className="mb-8 text-5xl font-thin md:mt-2 lg:mt-2 md:mb-6 lg:mb-8 md:text-4xl lg:text-5xl">
         projects
       </h2>
-      <nav aria-label="Projects Navigation">
+      <nav aria-label="Projects Navigation" role="navigation">
         <ul className="space-y-6">
           {items.map((item) => (
             <li key={item.label}>
