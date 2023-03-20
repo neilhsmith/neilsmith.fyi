@@ -1,26 +1,32 @@
 import Head from "next/head"
 import { useEffect, useMemo } from "react"
 import { useRouter } from "next/router"
-import NextHeight100 from "@styles/next-height"
 import BasicFlatLayout from "@components/layouts/basic-flat"
 import Header from "@components/header"
 import ContentViewer from "@components/content-viewer"
 import Sidebar from "@components/sidebar"
 import AboutMeContent from "@components/sections/about-me"
 import SimpleSpaghettioContent from "@components/sections/simple-spaghettio"
-import { GetServerSideProps } from "next"
+import { GetServerSideProps, GetStaticProps } from "next"
+import Transition from "@components/transition"
 
-export const getServerSideProps: GetServerSideProps = async (context) => {
-  const theme = context.req.cookies["theme"] ?? null
+// export const getServerSideProps: GetServerSideProps = async (context) => {
+//   const theme = context.req.cookies["theme"] ?? null
 
-  return {
-    props: {
-      theme,
-    },
-  }
-}
+//   return {
+//     props: {
+//       theme,
+//     },
+//   }
+// }
 
-const sections = [
+// export const getStaticProps: GetStaticProps = async (context) => {
+//   return {
+//     props: {},
+//   }
+// }
+
+const articles = [
   {
     label: "about me",
     path: "/",
@@ -50,18 +56,13 @@ const sections = [
 
 export default function Home() {
   const router = useRouter()
-
-  // TODO: think this memo is useless:
-  // if Home rerenders then Sidebar rerenders anyway. i think I'd need to memo the actual
-  // Sidebar component for this memo to have purpose - Sidebar wouldn't rerender when Home
-  // does because it receives the same items since we memod it
-  const sidebarItems = useMemo(() => sections.filter((s) => s.path !== "/"), [])
+  const sidebarArticles = articles.filter((a) => a.path !== "/")
 
   // handle 404 redirects incase someone edits their url
   useEffect(() => {
     if (!router.isReady) return
 
-    const isBadPath = !sections.some((s) => s.path === router.asPath)
+    const isBadPath = !articles.some((s) => s.path === router.asPath)
     if (isBadPath) router.replace("/404")
   }, [router, router.isReady, router.asPath])
 
@@ -73,11 +74,13 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <NextHeight100 />
+      <Transition active={router.asPath === "/#captain-hooks"} duration={1000}>
+        {(status) => <p>status: {status?.toString()}</p>}
+      </Transition>
       <BasicFlatLayout
         header={<Header />}
-        content={<ContentViewer activePath={router.asPath} items={sections} />}
-        sidebar={<Sidebar items={sidebarItems} />}
+        content={<ContentViewer activePath={router.asPath} items={articles} />}
+        sidebar={<Sidebar items={sidebarArticles} />}
       />
     </>
   )
