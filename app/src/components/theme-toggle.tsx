@@ -4,35 +4,23 @@ export default function ThemeToggle() {
   const { theme, setTheme } = useTheme()
 
   return (
-    <div className="flex text-lg gap-x-9">
-      <label
-        htmlFor="light-mode-toggle"
-        className="cursor-pointer"
+    <div className="flex text-lg gap-x-9" aria-label="Theme toggles">
+      <button
         onClick={() => setTheme("light")}
+        className={`cursor-pointer relative before:w-3 before:h-3 before:absolute before:top-[3px] before:translate-y-1/2 before:-left-2 before:-translate-x-full ${
+          theme === "light" ? "before:bg-brand-dark-bg" : ""
+        }`}
       >
-        <input type="radio" id="light-mode-toggle" className="hidden" />
-        <span
-          className={`relative before:w-3 before:h-3 before:absolute before:-top-[1px] before:translate-y-1/2 before:-left-2 before:-translate-x-full ${
-            theme === "light" ? "before:bg-brand-dark-bg" : ""
-          }`}
-        >
-          light
-        </span>
-      </label>
-      <label
-        htmlFor="dark-mode-toggle"
-        className="cursor-pointer"
+        light
+      </button>
+      <button
         onClick={() => setTheme("dark")}
+        className={`cursor-pointer relative before:w-3 before:h-3 before:absolute before:top-[3px] before:translate-y-1/2 before:-left-2 before:-translate-x-full ${
+          theme === "dark" ? "before:bg-brand-light-bg" : ""
+        }`}
       >
-        <input type="radio" id="dark-mode-toggle" className="hidden" />
-        <span
-          className={`relative before:w-3 before:h-3 before:absolute before:-top-[1px] before:translate-y-1/2 before:-left-2 before:-translate-x-full ${
-            theme === "dark" ? "before:bg-brand-light-bg" : ""
-          }`}
-        >
-          dark
-        </span>
-      </label>
+        dark
+      </button>
     </div>
   )
 }

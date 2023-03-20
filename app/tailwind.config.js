@@ -12,7 +12,7 @@ module.exports = {
         },
         "brand-light": {
           bg: "#fdf6e3",
-          text: "#657b83",
+          text: "#073642",
           border: "#073642",
         },
       },
