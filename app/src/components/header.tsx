@@ -10,7 +10,8 @@ export default function Header() {
         <Link
           href="/"
           aria-label="Home page"
-          className="flex items-center gap-4 text-3xl font-thin underline transition-colors duration-200 transform md:text-4xl underline-offset-4"
+          // className="flex items-center gap-4 text-3xl font-thin underline transition-colors duration-200 transform hover:decoration-brand-hover dark:hover:decoration-brand-dark-hover md:text-4xl underline-offset-4"
+          className="flex items-center gap-4 text-3xl font-thin md:text-4xl"
         >
           <Image
             priority
@@ -20,7 +21,7 @@ export default function Header() {
             alt="Small, stylized portrait of Neil Smith"
             className="rounded-full transform-none"
           />
-          neil smith
+          <span className="">neil smith</span>
         </Link>
       </h1>
       <nav aria-label="External Navigation" role="navigation">
